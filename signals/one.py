@@ -4,7 +4,7 @@ import math
 import matplotlib.pyplot as plt
 import msvcrt
 
-
+#region Generacja
 def szum_o_rozkladzie_jednostajnym(amplituda,t1,dlugosc,czestotliwosc = 1000.0):
     random.seed()
     fff = np.empty(int(dlugosc*czestotliwosc))
@@ -13,7 +13,6 @@ def szum_o_rozkladzie_jednostajnym(amplituda,t1,dlugosc,czestotliwosc = 1000.0):
         fff[x]=random.uniform(-amplituda,amplituda)
         time_stamp[x] = round(t1 + x / czestotliwosc,12)
     return fff,time_stamp
-
 
 def szum_gaussowski(amplituda,t1,dlugosc,czestotliwosc = 1000.0):
     random.seed()
@@ -24,8 +23,6 @@ def szum_gaussowski(amplituda,t1,dlugosc,czestotliwosc = 1000.0):
         time_stamp[x] =round(t1 + x / czestotliwosc,12)
     return fff, time_stamp
 
-
-
 def sygnal_sinusoidalny(amplituda,okres,t1,dlugosc,czestotliwosc = 1000.0):
     fff = np.empty(int(dlugosc*czestotliwosc))
     time_stamp = np.empty(int(dlugosc * czestotliwosc))
@@ -33,7 +30,6 @@ def sygnal_sinusoidalny(amplituda,okres,t1,dlugosc,czestotliwosc = 1000.0):
         fff[x]=round(amplituda*math.sin((2*math.pi/okres)*(x/czestotliwosc)),30)
         time_stamp[x] = round(t1 + x / czestotliwosc,12)
     return fff, time_stamp
-
 
 def Sygnal_sinusoidalny_wyprostowany_jednopolowkowo(amplituda,okres,t1,dlugosc,czestotliwosc = 1000.0):
     random.seed()
@@ -145,7 +141,8 @@ def szum_impulsowy(amplituda,t1,dlugosc,prawdopodobienstwo,czestotliwosc = 1000.
             fff[x]=0.0
         time_stamp[x]=round(t1 + x / czestotliwosc,12)
     return fff, time_stamp
-
+#endregion
+#region Rysowanie
 def amplituda_od_czasu_ciagly(dane,czas):
     plt.plot(czas,dane)
     plt.show()
@@ -157,8 +154,8 @@ def amplituda_od_czasu_dyskretny(dane, czas):
 def histogram(dane,liczba_przedzialow):
     plt.hist(dane,liczba_przedzialow)
     plt.show()
-
-
+#endregion
+#region Wartości sygnału
 def srednia(dane):
     return np.mean(dane)
 def srednia_mod(dane):
@@ -178,32 +175,19 @@ def wartosc_skuteczna(dane):
     for x in dane:
         suma += x * x
     return math.sqrt(suma / len(dane))
-def dane_wykresy_ciagle(dane,czas,przedzialy):
-    print("Wartosc srednia: ", srednia(dane))
-    print("Wartosc srednia bezwzgledna: ", srednia_mod(dane))
-    print("Moc srednia: ", moc_srednia(dane))
-    print("Wariancja: ", wariancja(dane))
-    print("Wartosc skuteczna: ", wartosc_skuteczna(dane))
-    amplituda_od_czasu_ciagly(dane,czas)
-    histogram(dane,przedzialy)
-def dane_wykresy_dyskretne(dane,czas,przedzialy):
-    print("Wartosc srednia: ", srednia(dane))
-    print("Wartosc srednia bezwzgledna: ", srednia_mod(dane))
-    print("Moc srednia: ", moc_srednia(dane))
-    print("Wariancja: ", wariancja(dane))
-    print("Wartosc skuteczna: ", wartosc_skuteczna(dane))
-    amplituda_od_czasu_dyskretny(dane,czas)
-    histogram(dane,przedzialy)
-
+#endregion
+#region Zapis i Odczyt
 def zapisz_sygnal(nazwa,arr):
-    #temp = np.vstack((dane,czas))
     np.save(nazwa,arr)
     #np.savetxt(nazwa+".csv",arr,delimiter=",")
 
 def odczytaj_sygnal(nazwa):
     return np.load(nazwa+".npy")
     # return np.loadtxt(nazwa,delimiter=",")
+#endregion
+#region Obliczenia na sygnałach
 def dodaj(dane1,czas1,dane2,czas2):
+    #########Tworzenie nowej osi czasu###############
     timeline = []
     if czas1[0]<czas2[0]:
         timeline.append(czas1[0])
@@ -223,6 +207,7 @@ def dodaj(dane1,czas1,dane2,czas2):
     dane2_licznik = 0
     time_licznik = 0
     wynik = np.zeros(len(timeline),dtype=float)
+    ############Właściwe obliczenia####################
     while time_licznik<len(timeline):
         if dane1_licznik< len(dane1) and czas1[dane1_licznik] == timeline[time_licznik]:
             wynik[time_licznik]+=dane1[dane1_licznik]
@@ -236,6 +221,7 @@ def dodaj(dane1,czas1,dane2,czas2):
 
 
 def odejmij(dane1,czas1,dane2,czas2):
+    #########Tworzenie nowej osi czasu###############
     timeline = []
     if czas1[0]<czas2[0]:
         timeline.append(czas1[0])
@@ -255,6 +241,7 @@ def odejmij(dane1,czas1,dane2,czas2):
     dane2_licznik = 0
     time_licznik = 0
     wynik = np.zeros(len(timeline),dtype=float)
+    ############Właściwe obliczenia####################
     while time_licznik<len(timeline):
         if dane1_licznik< len(dane1) and czas1[dane1_licznik] == timeline[time_licznik]:
             wynik[time_licznik]+=dane1[dane1_licznik]
@@ -266,6 +253,7 @@ def odejmij(dane1,czas1,dane2,czas2):
     return wynik,timeline
 
 def pomnoz(dane1,czas1,dane2,czas2):
+    #########Tworzenie nowej osi czasu###############
     timeline = []
     if czas1[0]<czas2[0]:
         timeline.append(czas1[0])
@@ -285,6 +273,7 @@ def pomnoz(dane1,czas1,dane2,czas2):
     dane2_licznik = 0
     time_licznik = 0
     wynik = np.zeros(len(timeline),dtype=float)
+    ############Właściwe obliczenia####################
     while time_licznik<len(timeline):
         if dane1_licznik< len(dane1) and dane2_licznik< len(dane2) and czas1[dane1_licznik] == timeline[time_licznik] and czas2[dane2_licznik] == timeline[time_licznik]:
             wynik[time_licznik]=dane1[dane1_licznik]*dane2[dane2_licznik]
@@ -302,6 +291,7 @@ def pomnoz(dane1,czas1,dane2,czas2):
     return wynik,timeline
 
 def podziel(dane1,czas1,dane2,czas2):
+    #########Tworzenie nowej osi czasu###############
     timeline = []
     if czas1[0]<czas2[0]:
         timeline.append(czas1[0])
@@ -321,6 +311,7 @@ def podziel(dane1,czas1,dane2,czas2):
     dane2_licznik = 0
     time_licznik = 0
     wynik = np.zeros(len(timeline),dtype=float)
+    ############Właściwe obliczenia####################
     while time_licznik<len(timeline):
         if dane1_licznik< len(dane1) and dane2_licznik< len(dane2) and czas1[dane1_licznik] == timeline[time_licznik] and czas2[dane2_licznik] == timeline[time_licznik]:
             if dane2[dane2_licznik]==0.0 and dane1[dane1_licznik]==0.0:
@@ -351,7 +342,24 @@ def podziel(dane1,czas1,dane2,czas2):
             wynik[time_licznik]= 0.0
         time_licznik+=1
     return wynik,timeline
-
+#endregion
+#region Interfejs
+def dane_wykresy_ciagle(dane,czas,przedzialy):
+    print("Wartosc srednia: ", srednia(dane))
+    print("Wartosc srednia bezwzgledna: ", srednia_mod(dane))
+    print("Moc srednia: ", moc_srednia(dane))
+    print("Wariancja: ", wariancja(dane))
+    print("Wartosc skuteczna: ", wartosc_skuteczna(dane))
+    amplituda_od_czasu_ciagly(dane,czas)
+    histogram(dane,przedzialy)
+def dane_wykresy_dyskretne(dane,czas,przedzialy):
+    print("Wartosc srednia: ", srednia(dane))
+    print("Wartosc srednia bezwzgledna: ", srednia_mod(dane))
+    print("Moc srednia: ", moc_srednia(dane))
+    print("Wariancja: ", wariancja(dane))
+    print("Wartosc skuteczna: ", wartosc_skuteczna(dane))
+    amplituda_od_czasu_dyskretny(dane,czas)
+    histogram(dane,przedzialy)
 def menu():
     Signals = []
     counter = 1
@@ -366,7 +374,7 @@ def menu():
         for xx in Signals:
             print(xx[1],xx[2],xx[3])
         x = int(input())
-        msvcrt.getch()
+        msvcrt.getch()                                                                                                  #de facto czyszczenie bufora z entera
         if x == 1:
             while msvcrt.kbhit():
                 msvcrt.getch()
@@ -427,11 +435,6 @@ def menu():
                 dane_wykresy_dyskretne(Signals[numer-1][0][0],Signals[numer-1][0][1],przedzialy_)
             else:
                 dane_wykresy_ciagle(Signals[numer-1][0][0], Signals[numer-1][0][1],przedzialy_)
-
-
-
-
-
 def generacja_sygnalu():
     print("Prosze wybrac sygnal\n"
           "1 - Szum o rozkladzie jednostajnym\n"
@@ -559,4 +562,5 @@ def f(ccc,freq):
         print("\n" * 100)
         print("Bledna wartosc\n")
         menu()
+#endregion
 menu()
