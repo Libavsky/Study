@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/signals/dud.npy
+/signals/pros.npy
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/repomine2.iml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/wzaip/zad1/zad1/.vs/zad1/v15/ipch/99c29bf08d09f541.ipch
+/wzaip/zad1/zad1/.vs/zad1/v15/.suo
+/wzaip/zad1/zad1/.vs/zad1/v15/Browse.VC.db
+/wzaip/zad1/zad1/.vs/zad1/v15/Browse.VC.opendb
+/Piotr_Rokicki_Adam_Tomaszczyk_Zad1.pdf
+/wzaip/zad1/zad1/zad1/ReadMe.txt

@@ -507,9 +507,9 @@ def f(ccc,freq):
         msvcrt.getch()
         k = float(input())
         msvcrt.getch()
-        if ccc == 3:
+        if ccc == 6:
             return Sygnal_prostokatny(amp, t, t1,d,k,freq),"Sygnal prostokatny",str(freq)+"HZ"
-        elif ccc == 4:
+        elif ccc == 7:
             return Sygnal_prostokatny_symetryczny(amp,t,t1,d,k,freq),"Sygnal prostokatny symetryczny",str(freq)+"HZ"
         else:
             return trojkatny(amp,t, t1, d,k,freq),"Sygnal trojkatny",str(freq)+"HZ"
