@@ -373,8 +373,12 @@ def menu():
               "Dostepne sygnaly:")
         for xx in Signals:
             print(xx[1],xx[2],xx[3])
-        x = int(input())
-        msvcrt.getch()                                                                                                  #de facto czyszczenie bufora z entera
+        try:
+            x = int(input())
+            msvcrt.getch()                                                                                  #de facto czyszczenie bufora z entera
+        except ValueError:
+            print("Prosze podac integer z zakresu 1-5 badz inny aby opuscic program")
+            continue
         if x == 1:
             while msvcrt.kbhit():
                 msvcrt.getch()
@@ -383,184 +387,341 @@ def menu():
             counter+=1
         if x == 2:
             print("Prosze podac numer sygnalu:")
-            numer = int(input())
-            msvcrt.getch()
+            try:
+                numer = int(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac integer")
+                continue
             print("Prosze podac nazwe pliku do zapisu:")
             nazwa = input()
             while msvcrt.kbhit():
                 msvcrt.getch()
-            zapisz_sygnal(nazwa,Signals[numer-1])
+            try:
+                zapisz_sygnal(nazwa,Signals[numer-1])
+            except IndexError:
+                print("Nie ma takiego sygnalu")
+                continue
         if x == 3:
             print("Prosze podac nazwe pliku do odczytu:")
             nazwa = input()
             while msvcrt.kbhit():
                 msvcrt.getch()
-            odczytany = odczytaj_sygnal(nazwa)
+            try:
+                odczytany = odczytaj_sygnal(nazwa)
+            except FileNotFoundError:
+                print("Nie ma takiego pliku")
+                continue
             Signals.append((odczytany[0],odczytany[1],odczytany[2],counter))
             counter += 1
         if x == 4:
             print("Uwaga - dokonywac mozna operacji jedynie na sygnalach o takiej samej czestotliwosci probkowania:")
             print("Prosze podac numer sygnalu pierwszego:")
-            pierwszy = int(input())
-            msvcrt.getch()
+            try:
+                pierwszy = int(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac integer")
+                continue
             print("Prosze podac numer sygnalu drugiego:")
-            drugi = int(input())
-            msvcrt.getch()
+            try:
+                drugi = int(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac integer")
+                continue
+            try:
+                if Signals[pierwszy-1][2] != Signals[drugi-1][2]:
+                    print("Rozne czestotliwosci probkowania moga doprowadzic do bledow - wybierz sygnaly o takiej samej czestotliwosci probkowania")
+                    continue
+            except IndexError:
+                print("Nie ma takiego sygnalu")
+                continue
             print("1 - dodawanie\n"
                   "2 - odejmowanie\n"
                   "3 - mnozenie\n"
                   "4 - dzielenie\n")
             print("Prosze wybrac operacje:")
-            operacja = int(input())
-            msvcrt.getch()
+            try:
+                operacja = int(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac integer")
+                continue
             if operacja == 1:
                 Signals.append((dodaj(Signals[pierwszy-1][0][0],Signals[pierwszy-1][0][1],Signals[drugi-1][0][0],Signals[drugi-1][0][1]),"Wynik dodawania",Signals[pierwszy-1][2],counter))
                 counter+=1
-            if operacja == 2:
+            elif operacja == 2:
                 Signals.append((odejmij(Signals[pierwszy-1][0][0],Signals[pierwszy-1][0][1],Signals[drugi-1][0][0],Signals[drugi-1][0][1]),"Wynik odejmowania",Signals[pierwszy-1][2],counter))
                 counter+=1
-            if operacja == 3:
+            elif operacja == 3:
                 Signals.append((pomnoz(Signals[pierwszy-1][0][0],Signals[pierwszy-1][0][1],Signals[drugi-1][0][0],Signals[drugi-1][0][1]),"Wynik mnozenia",Signals[pierwszy-1][2],counter))
                 counter+=1
-            if operacja == 4:
+            elif operacja == 4:
                 Signals.append((podziel(Signals[pierwszy-1][0][0],Signals[pierwszy-1][0][1],Signals[drugi-1][0][0],Signals[drugi-1][0][1]),"Wynik dzielenia",Signals[pierwszy-1][2],counter))
                 counter+=1
+            else:
+                print("Niewlasciwa operacja")
         if x == 5:
             print("Prosze podac numer sygnalu:")
-            numer = int(input())
-            msvcrt.getch()
-            przedzialy_ = int(input("Prosze podac liczbe przedzialow histogramu:"))
-            msvcrt.getch()
-            if Signals[numer-1][1]=="Impuls jednostkowy" or Signals[numer-1][1]=="Szum impulsowy":
-                dane_wykresy_dyskretne(Signals[numer-1][0][0],Signals[numer-1][0][1],przedzialy_)
-            else:
-                dane_wykresy_ciagle(Signals[numer-1][0][0], Signals[numer-1][0][1],przedzialy_)
+            try:
+                numer = int(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac integer")
+                continue
+            try:
+                przedzialy_ = int(input("Prosze podac liczbe przedzialow histogramu:"))
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac integer")
+                continue
+            try:
+                if Signals[numer-1][1]=="Impuls jednostkowy" or Signals[numer-1][1]=="Szum impulsowy":
+                    dane_wykresy_dyskretne(Signals[numer-1][0][0],Signals[numer-1][0][1],przedzialy_)
+                else:
+                    dane_wykresy_ciagle(Signals[numer-1][0][0], Signals[numer-1][0][1],przedzialy_)
+            except IndexError:
+                print("Nie ma takiego sygnalu")
+                continue
 def generacja_sygnalu():
-    print("Prosze wybrac sygnal\n"
-          "1 - Szum o rozkladzie jednostajnym\n"
-          "2 - Szum gaussowski\n"
-          "3 - Sygnal sinusoidalny\n"
-          "4 - Sygnal sinusoidalny wyprostowany jednopolowkowo\n"
-          "5 - Sygnal sinusoidalny wyprostowany dwupolowkowo\n"
-          "6 - Sygnal prostokatny\n"
-          "7 - Sygnal prostokatny symetryczny\n"
-          "8 - Sygnal trojkatny\n"
-          "9 - Skok jednostkowy\n"
-          "10 - Impuls jednostkowy\n"
-          "11 - Szum impulsowy")
-    z = int(input())
-    msvcrt.getch()
-    zz = float(input("Prosze podac czestotliwosc probkowania do zapisu"))
-    msvcrt.getch()
-    return f(z,zz)
+    while(True):
+        print("Prosze wybrac sygnal\n"
+              "1 - Szum o rozkladzie jednostajnym\n"
+              "2 - Szum gaussowski\n"
+              "3 - Sygnal sinusoidalny\n"
+              "4 - Sygnal sinusoidalny wyprostowany jednopolowkowo\n"
+              "5 - Sygnal sinusoidalny wyprostowany dwupolowkowo\n"
+              "6 - Sygnal prostokatny\n"
+              "7 - Sygnal prostokatny symetryczny\n"
+              "8 - Sygnal trojkatny\n"
+              "9 - Skok jednostkowy\n"
+              "10 - Impuls jednostkowy\n"
+              "11 - Szum impulsowy")
+        try:
+            z = int(input())
+            msvcrt.getch()
+        except ValueError:
+            print("Prosze podac integer")
+            continue
+        try:
+            zz = float(input("Prosze podac czestotliwosc probkowania do zapisu"))
+            msvcrt.getch()
+        except ValueError:
+            print("Prosze podac liczbe")
+            continue
+        if z<1 or z>11:
+            print("Nie ma takiego sygnalu")
+            continue
+        return f(z,zz)
 
 def f(ccc,freq):
-    if ccc == 1 or ccc == 2:
-        print("Prosze podac:\n"
-              "Amplituda\n"
-              "Moment poczatkowy\n"
-              "Dlugosc sygnalu")
-        amp = float(input())
-        msvcrt.getch()
-        t1 = float(input())
-        msvcrt.getch()
-        d = float(input())
-        msvcrt.getch()
-        if ccc == 1:
-            return szum_o_rozkladzie_jednostajnym(amp,t1,d,freq),"Szum o rozkladzie jednostajnym",str(freq)+"HZ"
+    while(True):
+        if ccc == 1 or ccc == 2:
+            print("Prosze podac:\n"
+                  "Amplituda\n"
+                  "Moment poczatkowy\n"
+                  "Dlugosc sygnalu")
+            try:
+                amp = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                t1 = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                d = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            if ccc == 1:
+                return szum_o_rozkladzie_jednostajnym(amp,t1,d,freq),"Szum o rozkladzie jednostajnym",str(freq)+"HZ"
+            else:
+                return szum_gaussowski(amp,t1,d,freq),"Szum gaussowski",str(freq)+"HZ"
+        if ccc == 3 or ccc == 4 or ccc == 5:
+            print("Prosze podac:\n"
+                  "Amplituda\n"
+                  "Okres\n"
+                  "Moment poczatkowy\n"
+                  "Dlugosc sygnalu")
+            try:
+                amp = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                t=float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                t1 = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                d = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            if ccc == 3:
+                return sygnal_sinusoidalny(amp, t, t1,d,freq),"Sygnal sinusoidalny",str(freq)+"HZ"
+            elif ccc == 4:
+                return Sygnal_sinusoidalny_wyprostowany_jednopolowkowo(amp,t,t1,d,freq),"Sygnal sinusoidalny wyprostowany jednopolowkowo",str(freq)+"HZ"
+            else:
+                return Sygnal_sinusoidalny_wyprostowany_dwupolowkowo(amp,t, t1, d,freq),"Sygnal sinusoidalny wyprostowany dwupolowkowo",str(freq)+"HZ"
+        if ccc == 6 or ccc == 7 or ccc == 8:
+            print("Prosze podac:\n"
+                  "Amplituda\n"
+                  "Okres\n"
+                  "Moment poczatkowy\n"
+                  "Dlugosc sygnalu\n"
+                  "Wypelnienie")
+            try:
+                amp = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                t=float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                t1 = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                d = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                k = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            if ccc == 6:
+                return Sygnal_prostokatny(amp, t, t1,d,k,freq),"Sygnal prostokatny",str(freq)+"HZ"
+            elif ccc == 7:
+                return Sygnal_prostokatny_symetryczny(amp,t,t1,d,k,freq),"Sygnal prostokatny symetryczny",str(freq)+"HZ"
+            else:
+                return trojkatny(amp,t, t1, d,k,freq),"Sygnal trojkatny",str(freq)+"HZ"
+        if ccc == 9:
+            print("Prosze podac:\n"
+                  "Amplituda\n"
+                  "Moment poczatkowy\n"
+                  "Dlugosc sygnalu\n"
+                  "Moment skoku")
+            try:
+                amp = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                t1 = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                d = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                ts = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            return szum_o_rozkladzie_jednostajnym(amp, t1, d,ts,freq),"Skok jednostkowy",str(freq)+"HZ"
+        if ccc == 10:
+            print("Prosze podac:\n"
+                  "Amplituda\n"
+                  "Numer probki z impulsem\n"
+                  "Numer pierwszej probki\n"
+                  "Dlugosc sygnalu")
+            try:
+                amp = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                ns = int(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                n1 = int(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                d = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            return impuls_jednostkowy(amp,ns,n1,d,freq),"Impuls jednostkowy",str(freq)+"HZ"
+        if ccc == 11:
+            print("Prosze podac:\n"
+                  "Amplituda\n"
+                  "Moment poczatkowy\n"
+                  "Dlugosc sygnalu\n"
+                  "Prawdopodobienstwo impulsu")
+            try:
+                amp = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                t1 = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                d = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            try:
+                ts = float(input())
+                msvcrt.getch()
+            except ValueError:
+                print("Prosze podac liczbe")
+                continue
+            return szum_impulsowy(amp, t1, d, ts,freq),"Szum impulsowy",str(freq)+"HZ"
         else:
-            return szum_gaussowski(amp,t1,d,freq),"Szum gaussowski",str(freq)+"HZ"
-    if ccc == 3 or ccc == 4 or ccc == 5:
-        print("Prosze podac:\n"
-              "Amplituda\n"
-              "Okres\n"
-              "Moment poczatkowy\n"
-              "Dlugosc sygnalu")
-        amp = float(input())
-        msvcrt.getch()
-        t=float(input())
-        msvcrt.getch()
-        t1 = float(input())
-        msvcrt.getch()
-        d = float(input())
-        msvcrt.getch()
-        if ccc == 3:
-            return sygnal_sinusoidalny(amp, t, t1,d,freq),"Sygnal sinusoidalny",str(freq)+"HZ"
-        elif ccc == 4:
-            return Sygnal_sinusoidalny_wyprostowany_jednopolowkowo(amp,t,t1,d,freq),"Sygnal sinusoidalny wyprostowany jednopolowkowo",str(freq)+"HZ"
-        else:
-            return Sygnal_sinusoidalny_wyprostowany_dwupolowkowo(amp,t, t1, d,freq),"Sygnal sinusoidalny wyprostowany dwupolowkowo",str(freq)+"HZ"
-    if ccc == 6 or ccc == 7 or ccc == 8:
-        print("Prosze podac:\n"
-              "Amplituda\n"
-              "Okres\n"
-              "Moment poczatkowy\n"
-              "Dlugosc sygnalu\n"
-              "Wypelnienie")
-        amp = float(input())
-        msvcrt.getch()
-        t=float(input())
-        msvcrt.getch()
-        t1 = float(input())
-        msvcrt.getch()
-        d = float(input())
-        msvcrt.getch()
-        k = float(input())
-        msvcrt.getch()
-        if ccc == 6:
-            return Sygnal_prostokatny(amp, t, t1,d,k,freq),"Sygnal prostokatny",str(freq)+"HZ"
-        elif ccc == 7:
-            return Sygnal_prostokatny_symetryczny(amp,t,t1,d,k,freq),"Sygnal prostokatny symetryczny",str(freq)+"HZ"
-        else:
-            return trojkatny(amp,t, t1, d,k,freq),"Sygnal trojkatny",str(freq)+"HZ"
-    if ccc == 9:
-        print("Prosze podac:\n"
-              "Amplituda\n"
-              "Moment poczatkowy\n"
-              "Dlugosc sygnalu\n"
-              "Moment skoku")
-        amp = float(input())
-        msvcrt.getch()
-        t1 = float(input())
-        msvcrt.getch()
-        d = float(input())
-        msvcrt.getch()
-        ts = float(input())
-        msvcrt.getch()
-        return szum_o_rozkladzie_jednostajnym(amp, t1, d,ts,freq),"Skok jednostkowy",str(freq)+"HZ"
-    if ccc == 10:
-        print("Prosze podac:\n"
-              "Amplituda\n"
-              "Numer probki z impulsem\n"
-              "Numer pierwszej probki\n"
-              "Dlugosc sygnalu")
-        amp = float(input())
-        msvcrt.getch()
-        ns = int(input())
-        msvcrt.getch()
-        n1 = int(input())
-        msvcrt.getch()
-        d = float(input())
-        msvcrt.getch()
-        return impuls_jednostkowy(amp,ns,n1,d,freq),"Impuls jednostkowy",str(freq)+"HZ"
-    if ccc == 11:
-        print("Prosze podac:\n"
-              "Amplituda\n"
-              "Moment poczatkowy\n"
-              "Dlugosc sygnalu\n"
-              "Prawdopodobienstwo impulsu")
-        amp = float(input())
-        msvcrt.getch()
-        t1 = float(input())
-        msvcrt.getch()
-        d = float(input())
-        msvcrt.getch()
-        ts = float(input())
-        msvcrt.getch()
-        return szum_impulsowy(amp, t1, d, ts,freq),"Szum impulsowy",str(freq)+"HZ"
-    else:
-        print("\n" * 100)
-        print("Bledna wartosc\n")
-        menu()
+            print("\n" * 100)
+            print("Bledna wartosc\n")
+            menu()
 #endregion
-menu()
+try:
+    menu()
+except Exception:
+    print("Cos sie stalo")
