@@ -10,7 +10,7 @@
         <wersja>1.0</wersja>
         <opis>Ranking filmów kinowych według serwisu Filmweb</opis>
     </metadane>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Skazani na Shawshank</tytuł>
         <reżyser>Frank Darabont</reżyser>
         <data_premiery>16 kwietnia 1995</data_premiery>
@@ -32,7 +32,7 @@
         <box_office waluta="Dolarów">59841469</box_office>
         <ograniczenie_wiekowe od_lat="od_szesnastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Nietykalni</tytuł>
         <reżyser>Olivier Nakache</reżyser>
         <reżyser>Eric Toledano</reżyser>
@@ -51,7 +51,7 @@
         <box_office waluta="Dolarów">426588510</box_office>
         <ograniczenie_wiekowe od_lat="od_trzynastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Zielona mila</tytuł>
         <reżyser>Frank Darabont</reżyser>
         <data_premiery>24 marca 2000</data_premiery>
@@ -77,7 +77,7 @@
         <box_office waluta="Dolarów">286801374</box_office>
         <ograniczenie_wiekowe od_lat="od_szesnastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Ojciec chrzestny</tytuł>
         <reżyser>Francis Ford Coppola</reżyser>
         <data_premiery>31 grudnia 1972</data_premiery>
@@ -107,7 +107,7 @@
         <box_office waluta="Dolarów">245066411</box_office>
         <ograniczenie_wiekowe od_lat="od_szesnastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Dwunastu gniewnych ludzi</tytuł>
         <reżyser>Sidney Lumet</reżyser>
         <data_premiery>listopad 1959</data_premiery>
@@ -128,7 +128,7 @@
         <gatunek GATUNEK="Dramat"/>
         <ograniczenie_wiekowe od_lat="od_trzynastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Forrest Gump</tytuł>
         <reżyser>Robert Zemeckis</reżyser>
         <data_premiery>4 listopada 1994</data_premiery>
@@ -150,7 +150,7 @@
         <box_office waluta="Dolarów">677387716</box_office>
         <ograniczenie_wiekowe od_lat="od_trzynastu_lat"/>
     </film>
-    <film>
+    <film studio = "PIXAR">
         <tytuł>Lot nad kukułczym gniazdem</tytuł>
         <reżyser>Miloš Forman</reżyser>
         <data_premiery>31 grudnia 1975</data_premiery>
@@ -175,7 +175,7 @@
         <gatunek GATUNEK="Dramat"/>
         <ograniczenie_wiekowe od_lat="od_szesnastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Ojciec chrzestny II</tytuł>
         <reżyser>Francis Ford Coppola</reżyser>
         <data_premiery>12 grudnia 1974</data_premiery>
@@ -201,7 +201,7 @@
         <box_office waluta="Dolarów">193000000</box_office>
         <ograniczenie_wiekowe od_lat="od_szesnastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Władca Pierścieni: Powrót króla</tytuł>
         <reżyser>Peter Jackson</reżyser>
         <data_premiery>1 stycznia 2004</data_premiery>
@@ -251,7 +251,7 @@
         <box_office waluta="Dolarów">1119929521</box_office>
         <ograniczenie_wiekowe od_lat="od_siedmiu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Lista Schindlera</tytuł>
         <reżyser>Steven Spielberg</reżyser>
         <data_premiery>31 grudnia 1993</data_premiery>
@@ -277,7 +277,7 @@
         <box_office waluta="Dolarów">321306305</box_office>
         <ograniczenie_wiekowe od_lat="od_szesnastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Pulp Fiction</tytuł>
         <reżyser>Quentin Tarantino</reżyser>
         <data_premiery>19 maja 1995</data_premiery>
@@ -303,7 +303,7 @@
         <box_office waluta="Dolarów">213928762</box_office>
         <ograniczenie_wiekowe od_lat="dla_dorosłych"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Życie jest piękne</tytuł>
         <reżyser>Roberto Benigni</reżyser>
         <data_premiery>12 marca 1999</data_premiery>
@@ -325,7 +325,7 @@
         <box_office waluta="Dolarów">229163264</box_office>
         <ograniczenie_wiekowe od_lat="od_szesnastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Siedem</tytuł>
         <reżyser>David Fincher</reżyser>
         <data_premiery>15 lutego 1996</data_premiery>
@@ -351,7 +351,7 @@
         <box_office waluta="Dolarów">327333559</box_office>
         <ograniczenie_wiekowe od_lat="od_trzynastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Władca Pierścieni: Dwie wieże</tytuł>
         <reżyser>Peter Jackson</reżyser>
         <data_premiery>31 stycznia 2003</data_premiery>
@@ -401,7 +401,7 @@
         <box_office waluta="Dolarów">926047111</box_office>
         <ograniczenie_wiekowe od_lat="od_siedmiu_lat"/>
     </film>
-    <film>
+    <film studio = "PIXAR">
         <tytuł>Podziemny krąg</tytuł>
         <reżyser>David Fincher</reżyser>
         <data_premiery>11 lutego 2000</data_premiery>
@@ -422,7 +422,7 @@
         <box_office waluta="Dolarów">100853753</box_office>
         <ograniczenie_wiekowe od_lat="od_szesnastu_lat"/>
     </film>
-    <film>
+    <film studio = "PIXAR">
         <tytuł>Chłopcy z ferajny</tytuł>
         <reżyser>Martin Scorsese</reżyser>
         <data_premiery>31 grudnia 1990</data_premiery>
@@ -443,7 +443,7 @@
         <gatunek GATUNEK="Dramat"/>
         <ograniczenie_wiekowe od_lat="od_szesnastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Piękny umysł</tytuł>
         <reżyser>Ron Howard</reżyser>
         <data_premiery>1 marca 2002</data_premiery>
@@ -465,7 +465,7 @@
         <box_office waluta="Dolarów">313542341</box_office>
         <ograniczenie_wiekowe od_lat="od_trzynastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Pianista</tytuł>
         <reżyser>Roman Polański</reżyser>
         <data_premiery>24 maja 2002</data_premiery>
@@ -487,7 +487,7 @@
         <box_office waluta="Dolarów">120072577</box_office>
         <ograniczenie_wiekowe od_lat="od_szesnastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Incepcja</tytuł>
         <reżyser>Christopher Nolan</reżyser>
         <data_premiery>30 lipca 2010</data_premiery>
@@ -513,7 +513,7 @@
         <box_office waluta="Dolarów">825532764</box_office>
         <ograniczenie_wiekowe od_lat="od_trzynastu_lat"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Django</tytuł>
         <reżyser>Quentin Tarantino</reżyser>
         <data_premiery>18 stycznia 2013</data_premiery>
@@ -539,7 +539,7 @@
         <box_office waluta="Dolarów">425368238</box_office>
         <ograniczenie_wiekowe od_lat="bez_ograniczeń"/>
     </film>
-    <film>
+    <film studio = "twentieth">
         <tytuł>Milczenie owiec</tytuł>
         <reżyser>Jonathan Demme</reżyser>
         <data_premiery>31 grudnia 1991</data_premiery>
@@ -557,4 +557,9 @@
         <box_office waluta="Funtów">99999999</box_office>
         <ograniczenie_wiekowe od_lat="od_siedmiu_lat"/>
     </film>
+    <studia>
+        <studio identyfikator = "twentieth">20th Century Fox</studio>
+        
+        <studio identyfikator = "PIXAR">Pixar</studio>
+    </studia>
 </filmy>
