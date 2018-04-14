@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE filmy SYSTEM "movies.dtd">
 <?xml-stylesheet type="text/css" href="moviesStylesheet.css"?>
 
 
 
-<filmy>
+<filmy xmlns="http://www.example.org/typy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/typy movies.xsd">
     <metadane>
+        <autorzy>
         <autor>Piotr Rokicki</autor>
-        <wersja>1.0</wersja>
+        <autor>Filip Łuczak</autor>
+        </autorzy>
+        <wersja>2.0</wersja>
         <opis>Ranking filmów kinowych według serwisu Filmweb</opis>
     </metadane>
     <film studio = "twentieth">
         <tytuł>Skazani na Shawshank</tytuł>
         <reżyser>Frank Darabont</reżyser>
-        <data_premiery>16 kwietnia 1995</data_premiery>
+        <data_premiery>1995-04-16</data_premiery>
         <aktorzy>
             <aktor filmweb="http://www.filmweb.pl/person/Tim.Robbins">
                 <imię>Tim</imię>
@@ -36,7 +38,7 @@
         <tytuł>Nietykalni</tytuł>
         <reżyser>Olivier Nakache</reżyser>
         <reżyser>Eric Toledano</reżyser>
-        <data_premiery>13 kwietnia 2012</data_premiery>
+        <data_premiery>2012-04-13</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Francois</imię>
@@ -54,7 +56,7 @@
     <film studio = "twentieth">
         <tytuł>Zielona mila</tytuł>
         <reżyser>Frank Darabont</reżyser>
-        <data_premiery>24 marca 2000</data_premiery>
+        <data_premiery>2000-03-24</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Tom</imię>
@@ -80,7 +82,7 @@
     <film studio = "twentieth">
         <tytuł>Ojciec chrzestny</tytuł>
         <reżyser>Francis Ford Coppola</reżyser>
-        <data_premiery>31 grudnia 1972</data_premiery>
+        <data_premiery>1972-12-31</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Marlon</imię>
@@ -110,7 +112,7 @@
     <film studio = "twentieth">
         <tytuł>Dwunastu gniewnych ludzi</tytuł>
         <reżyser>Sidney Lumet</reżyser>
-        <data_premiery>listopad 1959</data_premiery>
+        <data_premiery>1959-11-01</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Martin</imię>
@@ -131,7 +133,7 @@
     <film studio = "twentieth">
         <tytuł>Forrest Gump</tytuł>
         <reżyser>Robert Zemeckis</reżyser>
-        <data_premiery>4 listopada 1994</data_premiery>
+        <data_premiery>1994-11-04</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Tom</imię>
@@ -153,7 +155,7 @@
     <film studio = "PIXAR">
         <tytuł>Lot nad kukułczym gniazdem</tytuł>
         <reżyser>Miloš Forman</reżyser>
-        <data_premiery>31 grudnia 1975</data_premiery>
+        <data_premiery>1975-12-31</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Jack</imię>
@@ -178,7 +180,7 @@
     <film studio = "twentieth">
         <tytuł>Ojciec chrzestny II</tytuł>
         <reżyser>Francis Ford Coppola</reżyser>
-        <data_premiery>12 grudnia 1974</data_premiery>
+        <data_premiery>1974-12-12</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Al</imię>
@@ -204,7 +206,7 @@
     <film studio = "twentieth">
         <tytuł>Władca Pierścieni: Powrót króla</tytuł>
         <reżyser>Peter Jackson</reżyser>
-        <data_premiery>1 stycznia 2004</data_premiery>
+        <data_premiery>2004-01-01</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Elijah</imię>
@@ -254,7 +256,7 @@
     <film studio = "twentieth">
         <tytuł>Lista Schindlera</tytuł>
         <reżyser>Steven Spielberg</reżyser>
-        <data_premiery>31 grudnia 1993</data_premiery>
+        <data_premiery>1993-12-31</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Liam</imię>
@@ -280,7 +282,7 @@
     <film studio = "twentieth">
         <tytuł>Pulp Fiction</tytuł>
         <reżyser>Quentin Tarantino</reżyser>
-        <data_premiery>19 maja 1995</data_premiery>
+        <data_premiery>1995-05-19</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>John</imię>
@@ -306,7 +308,7 @@
     <film studio = "twentieth">
         <tytuł>Życie jest piękne</tytuł>
         <reżyser>Roberto Benigni</reżyser>
-        <data_premiery>12 marca 1999</data_premiery>
+        <data_premiery>1999-03-12</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Roberto</imię>
@@ -328,7 +330,7 @@
     <film studio = "twentieth">
         <tytuł>Siedem</tytuł>
         <reżyser>David Fincher</reżyser>
-        <data_premiery>15 lutego 1996</data_premiery>
+        <data_premiery>1996-02-15</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Morgan</imię>
@@ -354,7 +356,7 @@
     <film studio = "twentieth">
         <tytuł>Władca Pierścieni: Dwie wieże</tytuł>
         <reżyser>Peter Jackson</reżyser>
-        <data_premiery>31 stycznia 2003</data_premiery>
+        <data_premiery>2003-01-31</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Elijah</imię>
@@ -404,7 +406,7 @@
     <film studio = "PIXAR">
         <tytuł>Podziemny krąg</tytuł>
         <reżyser>David Fincher</reżyser>
-        <data_premiery>11 lutego 2000</data_premiery>
+        <data_premiery>2000-02-11</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Brad</imię>
@@ -425,7 +427,7 @@
     <film studio = "PIXAR">
         <tytuł>Chłopcy z ferajny</tytuł>
         <reżyser>Martin Scorsese</reżyser>
-        <data_premiery>31 grudnia 1990</data_premiery>
+        <data_premiery>1990-12-31</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Robert</imię>
@@ -446,7 +448,7 @@
     <film studio = "twentieth">
         <tytuł>Piękny umysł</tytuł>
         <reżyser>Ron Howard</reżyser>
-        <data_premiery>1 marca 2002</data_premiery>
+        <data_premiery>2002-03-01</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Russel</imię>
@@ -468,7 +470,7 @@
     <film studio = "twentieth">
         <tytuł>Pianista</tytuł>
         <reżyser>Roman Polański</reżyser>
-        <data_premiery>24 maja 2002</data_premiery>
+        <data_premiery>2002-05-24</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Adrien</imię>
@@ -490,7 +492,7 @@
     <film studio = "twentieth">
         <tytuł>Incepcja</tytuł>
         <reżyser>Christopher Nolan</reżyser>
-        <data_premiery>30 lipca 2010</data_premiery>
+        <data_premiery>2010-07-30</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Leonardo</imię>
@@ -516,7 +518,7 @@
     <film studio = "twentieth">
         <tytuł>Django</tytuł>
         <reżyser>Quentin Tarantino</reżyser>
-        <data_premiery>18 stycznia 2013</data_premiery>
+        <data_premiery>2013-01-18</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Jamie</imię>
@@ -542,7 +544,7 @@
     <film studio = "twentieth">
         <tytuł>Milczenie owiec</tytuł>
         <reżyser>Jonathan Demme</reżyser>
-        <data_premiery>31 grudnia 1991</data_premiery>
+        <data_premiery>1991-12-31</data_premiery>
         <aktorzy>
             <aktor>
                 <imię>Anthony</imię>

@@ -4,8 +4,13 @@ filmy {   display: block;
           margin-left:40px;
           background-color: darkred;}
 metadane { display: block }
-autor:before {content: "Zadanie 1 - XML + DTD + CSS";
-              display: block;}
+autorzy:before {content: "Zadanie 1 - XML + XSD + CSS";
+
+                display: block;
+                font-weight: bold;
+                font-size: 30px;
+                text-align: center;
+}
 autor { display: block;
         font-weight: bold;
         font-size: 30px;
@@ -13,10 +18,10 @@ autor { display: block;
 wersja:before{content: "wersja: ";
               display: inline;}
 wersja { display: block;
-        padding-right: 20px;
-        font-weight: bold;
-        font-size: 19px;
-        text-align: right;}
+         padding-right: 20px;
+         font-weight: bold;
+         font-size: 19px;
+         text-align: right;}
 osoby_modyfikujące:before{content: "Modyfikowali: "}
 osoby_modyfikujące { display: block;
                      font-style: italic;
@@ -29,15 +34,15 @@ opis {               display: block;
                      color: darkslategrey;}
 filmy > film { display: list-item;
                list-style-type: decimal;
-padding: 40px;
-padding-top: 25px;
-width: 600px;
-height: auto;
-alignment-adjust: central;
-border-style: dotted;
-border-color: greenyellow;
-background-image: url("zzz.gif");
-background-size: 100%;} 
+               padding: 40px;
+               padding-top: 25px;
+               width: 600px;
+               height: auto;
+               alignment-adjust: central;
+               border-style: dotted;
+               border-color: greenyellow;
+               background-image: url("zzz.gif");
+               background-size: 100%;} 
 filmy > film > tytuł,
 filmy > film > reżyser,
 filmy > film > data_premiery,
@@ -46,23 +51,23 @@ filmy > film > ograniczenie_wiekowe,
 filmy > film > gatunek,
 filmy > film > aktorzy
 { display: table-row;
-background-color: gold;
-font-family: Helvetica;}
+  background-color: gold;
+  font-family: Helvetica;}
 
 filmy > film > aktorzy > aktor { 
-display:  table-row;
-color: red; 
-border-color: #002288;
-background-color: gold;
+    display:  table-row;
+    color: red; 
+    border-color: #002288;
+    background-color: gold;
 }
 filmy > film > aktorzy > aktor:after {content: attr(filmweb);
-color: blue}
+                                      color: blue}
 filmy > film > aktorzy > aktor > imię { display: inline;
-background-color: gold;}
+                                        background-color: gold;}
 filmy > film > aktorzy > aktor > nazwisko { display: inline ;
-background-color: gold;}
+                                            background-color: gold;}
 filmy > film > gatunek:after {content: attr(GATUNEK);
-display: table-cell;}
+                              display: table-cell;}
 filmy > film > ograniczenie_wiekowe:after {content: attr(od_lat)}
 filmy > film > tytuł:before { content: "Tytuł: ";
                               width: 130px;}
@@ -85,8 +90,8 @@ filmy > film > gatunek:before{
     display: table-cell;
     font-weight: bold;
     font-family: Arial;
-   
-    
+
+
 }
 filmy > studia > studio{display: none}
 

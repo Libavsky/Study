@@ -17,7 +17,7 @@
 
 using namespace std;
 
-int rsq(int index, long long *fenwick) {
+int RSQ(int index, long long *fenwick) {
 	int returnValue = 0;
 	for (int i = index + 1; i > 0; i -= i&-i) {
 		returnValue += fenwick[i];
@@ -25,7 +25,7 @@ int rsq(int index, long long *fenwick) {
 	return returnValue;
 }
 
-void adjust(int index, long long *fenwick) {
+void Adjust(int index, long long *fenwick) {
 	for (int i = index + 1; i < maxNumber; i += i&-i) {
 		fenwick[i]++;
 	}
@@ -36,7 +36,7 @@ void adjust(int index, long long *fenwick) {
 int values[maxNumber];
 int positions[maxNumber];
 
-int cmp(int a, int b) {
+int Compare(int a, int b) {
 	if (values[a] != values[b]) return values[a] < values[b];
 	return positions[a] < positions[b];
 }
@@ -60,11 +60,11 @@ int main()
 			pos.push_back(i);
 		}
 
-		sort(pos.begin(), pos.end(), cmp);
+		sort(pos.begin(), pos.end(), Compare);
 
 		for (int i = 0; i < n; ++i) {
-			adjust(pos[i], fenwick);
-			solution += pos[i] - rsq(pos[i], fenwick) + 1;
+			Adjust(pos[i], fenwick);
+			solution += pos[i] - RSQ(pos[i], fenwick) + 1;
 		}
 
 		printf("%lld\n", solution);
