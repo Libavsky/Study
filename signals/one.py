@@ -3,6 +3,7 @@ import random
 import math
 import matplotlib.pyplot as plt
 import msvcrt
+import json
 
 #region Generacja
 def szum_o_rozkladzie_jednostajnym(amplituda,t1,dlugosc,czestotliwosc = 1000.0):
@@ -178,12 +179,21 @@ def wartosc_skuteczna(dane):
 #endregion
 #region Zapis i Odczyt
 def zapisz_sygnal(nazwa,arr):
-    np.save(nazwa,arr)
+    #np.save(nazwa,arr)
+
+    zonk = np.array(arr[0]).tolist()
+    with open(nazwa+".json", 'w') as outfile:
+        json.dump(zonk, outfile)
+    # with open(nazwa+".txt", 'wb') as abc:
+    #     np.savetxt(abc, arr[0], delimiter=",")
     #np.savetxt(nazwa+".csv",arr,delimiter=",")
 
 def odczytaj_sygnal(nazwa):
-    return np.load(nazwa+".npy")
-    # return np.loadtxt(nazwa,delimiter=",")
+    #return np.load(nazwa+".npy")
+    #return np.loadtxt(nazwa+".txt",delimiter=",")
+    data = json.load(open(nazwa+".json"))
+    print(data)
+    return data
 #endregion
 #region Obliczenia na sygnałach
 def dodaj(dane1,czas1,dane2,czas2):
@@ -721,7 +731,7 @@ def f(ccc,freq):
             print("Bledna wartosc\n")
             menu()
 #endregion
-try:
-    menu()
-except Exception:
-    print("Cos sie stalo")
+# try:
+menu()
+# except Exception:
+#     print("Cos sie stalo")
