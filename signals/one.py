@@ -192,7 +192,6 @@ def odczytaj_sygnal(nazwa):
     #return np.load(nazwa+".npy")
     #return np.loadtxt(nazwa+".txt",delimiter=",")
     data = json.load(open(nazwa+".json"))
-    print(data)
     return data
 #endregion
 #region Obliczenia na sygnałach
