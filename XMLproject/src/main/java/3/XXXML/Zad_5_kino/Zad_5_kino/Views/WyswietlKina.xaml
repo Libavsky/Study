@@ -6,9 +6,29 @@
       xmlns:local="clr-namespace:Zad_5_kino.Views"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="WyswietlKina">
+      Title="WyswietlKina"
+       DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
 
-    <Grid>
-        
-    </Grid>
+    <ScrollViewer Margin="10" >
+        <ListView ItemsSource="{Binding repertuar.wyświetlanie.kina}" SelectedIndex="{Binding SelectedSeans}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="10">
+                        <TextBlock >
+                            <Run Text="Id kina: " />
+                            <Run  Text="{Binding id}"/>
+                        </TextBlock>
+                        <TextBlock FontWeight="Bold">
+                            <Run Text="Kino: " />
+                            <Run Text="{Binding nazwa}" />
+                        </TextBlock>
+                        <TextBlock FontWeight="Bold">
+                            <Run Text="Miasto: " />
+                            <Run Text="{Binding miasto}" />
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollViewer>
 </Page>

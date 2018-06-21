@@ -6,9 +6,31 @@
       xmlns:local="clr-namespace:Zad_5_kino.Views"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="WyswietlSeanse">
+      Title="WyswietlSeanse"
+      DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
 
-    <Grid>
-        
-    </Grid>
+
+
+    <ScrollViewer Margin="10" >
+        <ListView ItemsSource="{Binding repertuar.wyświetlanie.seanse}" SelectedIndex="{Binding SelectedSeans}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="10">
+                        <TextBlock >
+                            <Run Text="Data seansu: " />
+                            <Run  Text="{Binding data_seansu}"/>
+                        </TextBlock>
+                        <TextBlock FontWeight="Bold">
+                            <Run Text="Kino: " />
+                            <Run Text="{Binding id_kina}" />
+                        </TextBlock>
+                        <TextBlock FontWeight="Bold">
+                            <Run Text="Tytuł filmu: " />
+                            <Run Text="{Binding id_filmu}" />
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollViewer>
 </Page>

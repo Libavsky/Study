@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<repertuar>
+  <autorzy xmlns:cs="urn:cs">
+    <autor>
+      <imie>Filip</imie>
+      <nazwisko>Łuczak</nazwisko>
+    </autor>
+    <autor>
+      <imie>Piotr</imie>
+      <nazwisko>Rokicki</nazwisko>
+    </autor>
+  </autorzy>
+  <statystyki xmlns:cs="urn:cs">
+    <gatunki>
+      <gatunek>
+        <nazwa>Science-Fiction</nazwa>
+        <liczba_gatunku>1</liczba_gatunku>
+        <średnia_box_office>825532764.00 Dolarów</średnia_box_office>
+        <średnia_ocena>8</średnia_ocena>
+        <średni_wiek_od>13</średni_wiek_od>
+      </gatunek>
+      <gatunek>
+        <nazwa>Thriller</nazwa>
+        <liczba_gatunku>2</liczba_gatunku>
+        <średnia_box_office>100426876.00 Dolarów</średnia_box_office>
+        <średnia_ocena>6</średnia_ocena>
+        <średni_wiek_od>17</średni_wiek_od>
+      </gatunek>
+      <gatunek>
+        <nazwa>Fantasy</nazwa>
+        <liczba_gatunku>2</liczba_gatunku>
+        <średnia_box_office>1022988316.00 Dolarów</średnia_box_office>
+        <średnia_ocena>8</średnia_ocena>
+        <średni_wiek_od>17</średni_wiek_od>
+      </gatunek>
+      <gatunek>
+        <nazwa>Dramat</nazwa>
+        <liczba_gatunku>14</liczba_gatunku>
+        <średnia_box_office>174727264.07 Dolarów</średnia_box_office>
+        <średnia_ocena>6</średnia_ocena>
+        <średni_wiek_od>15</średni_wiek_od>
+      </gatunek>
+      <gatunek>
+        <nazwa>Dokument</nazwa>
+        <liczba_gatunku>1</liczba_gatunku>
+        <średnia_box_office>213928762.00 Dolarów</średnia_box_office>
+        <średnia_ocena>9</średnia_ocena>
+        <średni_wiek_od>18</średni_wiek_od>
+      </gatunek>
+      <gatunek>
+        <nazwa>Kryminał</nazwa>
+        <liczba_gatunku>1</liczba_gatunku>
+        <średnia_box_office>327333559.00 Dolarów</średnia_box_office>
+        <średnia_ocena>5</średnia_ocena>
+        <średni_wiek_od>15</średni_wiek_od>
+      </gatunek>
+    </gatunki>
+  </statystyki>
+  <filmy_w_kinie xmlns:cs="urn:cs">
+    <seans>
+      <film>Milczenie owiec  by:  Jonathan Demme</film>
+      <kino>	CinemaCity   Warszawa </kino>
+      <data_seansu>2018-04-03</data_seansu>
+    </seans>
+    <seans>
+      <film>Skazani na Shawshank  by:  Frank Darabont</film>
+      <kino>	Helios   Poznań </kino>
+      <data_seansu>2018-04-04</data_seansu>
+    </seans>
+    <seans>
+      <film>Django  by:  Quentin Tarantino</film>
+      <kino>	MultiKino   Wrocław </kino>
+      <data_seansu>2018-06-05</data_seansu>
+    </seans>
+    <seans>
+      <film>Władca Pierścieni: Dwie wieże  by:  Peter Jackson</film>
+      <kino>	CinemaCity   Warszawa </kino>
+      <data_seansu>2018-06-19</data_seansu>
+    </seans>
+  </filmy_w_kinie>
+  <data_raportu xmlns:cs="urn:cs">2018-06-21T23:08:30Z</data_raportu>
+</repertuar>

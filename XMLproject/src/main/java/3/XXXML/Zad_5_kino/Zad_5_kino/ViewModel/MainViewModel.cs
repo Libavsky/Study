@@ -145,6 +145,9 @@ namespace Zad_5_kino.ViewModel
 
             NewSeans = new repertuarWyœwietlanieSeans();
             NewFilm = new repertuarFilm();
+            NewFilm.ograniczenie_wiekowe = new repertuarFilmOgraniczenie_wiekowe();
+            NewFilm.gatunek = new repertuarFilmGatunek();
+            NewFilm.box_office = new repertuarFilmBox_office();
             NewKino = new repertuarWyœwietlanieKino();
                 
         }
@@ -210,9 +213,9 @@ namespace Zad_5_kino.ViewModel
                 serializer.Serialize(writer, repertuar);
             }
 
-            if (ValidateSchema("../../Document/tmp.xml", "../../Documents/zadanie5.xsd"))
+            if (ValidateSchema("../../Document/tmp.xml", "../../Document/movies.xsd"))
             {
-                File.Copy("../../Document/tmp.xml", "../../Documents/zadanie5.xml", true);
+                File.Copy("../../Document/tmp.xml", "../../Document/zadanie5.xml", true);
                 File.Delete("../../Document/tmp.xml");
                 MessageBox.Show("Changes saved to zadanie5.xml");
             }
@@ -228,14 +231,14 @@ namespace Zad_5_kino.ViewModel
 
             XslCompiledTransform raportXsltTransform = new XslCompiledTransform();
             raportXsltTransform.Load("../../Document/film_pomocniczy.xslt", XsltSettings.TrustedXslt, new XmlUrlResolver());
-            raportXsltTransform.Transform("../../Document/zadanie5.xml", "../../Documents/zadanie5_raport.xml");
+            raportXsltTransform.Transform("../../Document/zadanie5.xml", "../../Document/zadanie5_raport.xml");
 
             XslCompiledTransform htmlXsltTransform = new XslCompiledTransform();
             htmlXsltTransform.Load("../../Document/film_to_html.xslt");
-            htmlXsltTransform.Transform("../../Document/zadanie5_raport.xml", "../../Documents/zadanie5.html");
+            htmlXsltTransform.Transform("../../Document/zadanie5_raport.xml", "../../Document/zadanie5.html");
 
             //I know system specific operations should be in adapters but who cares ...
-            System.Diagnostics.Process.Start(Path.GetFullPath("../../Documents/zadanie5.html"));
+            System.Diagnostics.Process.Start(Path.GetFullPath("../../Document/zadanie5.html"));
         }));
         #endregion
 

@@ -11,22 +11,28 @@
 
     <ScrollViewer>
         <StackPanel>
-            <TextBlock Text="Marka"/>
-            <TextBox Text="{Binding NewCar.nazwa.marka}"/>
-            <TextBlock Text="Model"/>
-            <TextBox Text="{Binding NewCar.nazwa.model}"/>
-            <TextBlock Text="Generacja"/>
-            <TextBox Text="{Binding NewCar.nazwa.generacja}"/>
-            <TextBlock Text="Przebieg"/>
-            <TextBox Text="{Binding NewCar.przebieg}"/>
-            <TextBlock Text="Rok produkcji"/>
-            <TextBox Text="{Binding NewCar.rok_produkcji}"/>
-            <TextBlock Text="Kolor"/>
-            <TextBox Text="{Binding NewCar.kolor}"/>
-            <TextBlock Text="Miasto"/>
-            <TextBox Text="{Binding NewCar.miasto}"/>
-            <TextBlock Text="Koszt wypożyczenia na jeden dzień"/>
-            <TextBox Text="{Binding NewCar.cena_wypożyczenia_za_1_dzien}"/>
+            <TextBlock Text="Tytuł"/>
+            <TextBox Text="{Binding NewFilm.tytuł}"/>
+            <TextBlock Text="Reżyser"/>
+            <TextBox Text="{Binding NewFilm.reżyser[0]}"/>
+            <TextBlock Text="Imię aktora"/>
+            <TextBox Text="{Binding NewFilm.aktorzy[0].imię}"/>
+            <TextBlock Text="Nazwisko aktora"/>
+            <TextBox Text="{Binding NewFilm.aktorzy[0].nazwisko}"/>
+            <TextBlock Text="filmweb aktora"/>
+            <TextBox Text="{Binding NewFilm.aktorzy[0].filmweb}"/>
+            <TextBlock Text="Data premiery"/>
+            <TextBox Text="{Binding NewFilm.data_premiery}"/>
+            <TextBlock Text="Gatunek"/>
+            <TextBox Text="{Binding NewFilm.gatunek.rodzaj}"/>
+            <TextBlock Text="Box office - liczba"/>
+            <TextBox Text="{Binding NewFilm.box_office.Value}"/>
+            <TextBlock Text="waluta (np. dolarów)"/>
+            <TextBox Text="{Binding NewFilm.box_office.waluta}"/>
+            <TextBlock Text="Ograniczenie wiekowe"/>
+            <TextBox Text="{Binding NewFilm.ograniczenie_wiekowe.od_lat}"/>
+            <TextBlock Text="Ocena"/>
+            <TextBox Text="{Binding NewFilm.ocena}"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

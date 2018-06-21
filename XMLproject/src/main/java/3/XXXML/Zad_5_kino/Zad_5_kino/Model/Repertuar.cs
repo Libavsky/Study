@@ -181,11 +181,11 @@ namespace Zad_5_kino.Model
 
         private string tytułField;
 
-        private string[] reżyserField;
+        private string[] reżyserField = { "sdd" };
 
         private System.DateTime data_premieryField;
 
-        private repertuarFilmAktor[] aktorzyField;
+        private repertuarFilmAktor[] aktorzyField = {new repertuarFilmAktor() };
 
         private repertuarFilmGatunek gatunekField;
 

@@ -66,19 +66,19 @@ namespace Zad_5_kino
             seansFrame.Navigate(new DodajKina());
         }
 
-        private void ConfirmCar(object sender, RoutedEventArgs e)
+        private void ConfirmFilm(object sender, RoutedEventArgs e)
         {
             _vm.AddFilmCommand.Execute(null);
             filmFrame.GoBack();
         }
 
-        private void ConfirmRental(object sender, RoutedEventArgs e)
+        private void ConfirmKino(object sender, RoutedEventArgs e)
         {
             _vm.AddKinoCommand.Execute(null);
             kinoFrame.GoBack();
         }
 
-        private void ConfirmEmployee(object sender, RoutedEventArgs e)
+        private void ConfirmSeans(object sender, RoutedEventArgs e)
         {
             _vm.AddSeansCommand.Execute(null);
             seansFrame.GoBack();
