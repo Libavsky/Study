@@ -1,0 +1,43 @@
+﻿Statysyki miast:
+
+Łódź
+Liczba samochodów:            4
+Średnia cena wypożyczenia     47.48 PLN
+Średni przebieg:              47.48 PLN
+Średni wiek:                  2006
+
+Warszawa
+Liczba samochodów:            5
+Średnia cena wypożyczenia     138.31 PLN
+Średni przebieg:              138.31 PLN
+Średni wiek:                  2013
+
+Wrocław
+Liczba samochodów:            3
+Średnia cena wypożyczenia     69.01 PLN
+Średni przebieg:              69.01 PLN
+Średni wiek:                  1999
+
+Wypożyczenia:
+
+Samochód:                     Honda Civic
+Pracownik:                    Jan Kowalski
+Data wypożyczenia:            2016-10-03
+Data zwrotu:                  2016-11-11
+Wypożyczający:                Michał Nowak
+
+Samochód:                     Fiat Multipla
+Pracownik:                    Adam Garnys
+Data wypożyczenia:            2016-08-21
+Data zwrotu:                  2016-12-12
+Wypożyczający:                Piotr Borowski
+
+Autorzy:
+
+Imie:                         Przemysław
+Nazwisko:                     Gęsieniec
+
+Imie:                         Łukasz
+Nazwisko:                     Zimoń
+
+Data Raportu:                 2016-11-27T18:59:00Z

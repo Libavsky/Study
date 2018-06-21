@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+  <script type="text/ecmascript"> 
+                
+                    function onMouseOverWykres(evt) 
+                    {
+                        var liczby = document.getElementsByClassName("liczbaSamochodow");
+                        for (i = 0; i &lt; liczby.length; ++i) 
+                        {
+                          liczby[i].setAttribute("visibility", "visible");
+                        }
+                    }
+                    function onMouseOutWykres(evt) 
+                    {
+                        var liczby = document.getElementsByClassName("liczbaSamochodow");
+                        for (i = 0; i &lt; liczby.length; ++i) 
+                        {
+                          liczby[i].setAttribute("visibility", "hidden");
+                        }
+                    }
+                    function onClickAutorzy(evt)
+                    {
+                        var autorzy = document.getElementById("autorzy");
+                        var visibility = autorzy.getAttribute("visibility");
+                        if(visibility==="visible")
+                        {
+                            autorzy.setAttribute("visibility", "hidden");
+                        }
+                        else
+                        {
+                            autorzy.setAttribute("visibility", "visible");
+                        }
+                    }
+            
+            </script>
+  <rect x="0" y="0" width="550" height="500" fill="DarkGrey" />
+  <text x="80" y="30" font-size="24" fill="black" font-weight="bold">Liczba dostępnych samochodów</text>
+  <g id="poleWykresu" width="450" height="265" onmouseover="onMouseOverWykres(evt)" onmouseout="onMouseOutWykres(evt)">
+    <rect x="25" y="50" width="450" height="265" fill="Grey" stroke="DimGrey" />
+    <rect x="50" width="50" fill="white" stroke="black">
+      <animate attributeName="height" from="0" to="160" dur="5s" fill="freeze" />
+      <animate attributeName="y" from="290" to="130" dur="5s" fill="freeze" />
+    </rect>
+    <text x="50" y="305" font-size="16" fill="black" font-weight="bold">Łódź</text>
+    <text class="liczbaSamochodow" visibility="hidden" x="70" y="125" font-size="16" fill="black" font-weight="bold">4</text>
+    <rect x="150" width="50" fill="white" stroke="black">
+      <animate attributeName="height" from="0" to="200" dur="5s" fill="freeze" />
+      <animate attributeName="y" from="290" to="90" dur="5s" fill="freeze" />
+    </rect>
+    <text x="150" y="305" font-size="16" fill="black" font-weight="bold">Warszawa</text>
+    <text class="liczbaSamochodow" visibility="hidden" x="170" y="85" font-size="16" fill="black" font-weight="bold">5</text>
+    <rect x="250" width="50" fill="white" stroke="black">
+      <animate attributeName="height" from="0" to="120" dur="5s" fill="freeze" />
+      <animate attributeName="y" from="290" to="170" dur="5s" fill="freeze" />
+    </rect>
+    <text x="250" y="305" font-size="16" fill="black" font-weight="bold">Wrocław</text>
+    <text class="liczbaSamochodow" visibility="hidden" x="270" y="165" font-size="16" fill="black" font-weight="bold">3</text>
+  </g>
+  <text x="25" y="400" font-size="24" fill="black" font-weight="bold" onclick="onClickAutorzy(evt)">Autorzy</text>
+  <g id="autorzy" visibility="hidden">
+    <text x="150" y="420" font-size="24" fill="black" font-weight="bold">Przemysław Gęsieniec</text>
+    <text x="150" y="440" font-size="24" fill="black" font-weight="bold">Łukasz Zimoń</text>
+  </g>
+</svg>

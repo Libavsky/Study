@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/typy" xmlns:typy="http://www.example.org/typy" elementFormDefault="qualified" >
+  <xs:element name="wypożyczalnia">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="opis">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="temat" type="typy:dlugiCiagZnakow"/>
+              <xs:element name="autorzy">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="2" maxOccurs="2" name="autor" type="typy:autor" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="samochody">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="samochód">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="nazwa">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="model" type="typy:krotiCiagZnakow" />
+                          <xs:element name="marka" type="typy:krotiCiagZnakow" />
+                          <xs:element minOccurs="0" name="generacja" type="typy:bardzoKrotiCiagZnakow" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="przebieg">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="jednostka" type="typy:jednostkaDrogi" use="required" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="rok_produkcji" type="xs:unsignedShort" />
+                    <xs:element name="kolor" type="typy:krotiCiagZnakow" />
+                    <xs:element name="czy_wypożyczone" type="typy:takNie" />
+                    <xs:element name="miasto">
+                      <xs:complexType>
+                        <xs:attribute name="miasto" type="typy:miasta" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="cena_wypożyczenia_za_1_dzien">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="typy:waluta">
+                            <xs:attribute name="waluta" type="typy:waluty" use="required" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:ID" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="usługi">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="pracownicy">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="pracownik">
+                      <xs:complexType>
+                        <xs:group ref="typy:osoba"/>
+                        <xs:attribute name="id" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="wypożyczenia">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="wypożyczenie">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="data_wypożyczenia" type="xs:date" />
+                          <xs:element name="data_zwrotu" type="xs:date" />
+                          <xs:element name="wypożyczający">
+                            <xs:complexType>
+                              <xs:attributeGroup ref="typy:wypożyczającyAtrybuty" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id_pracownika" type="xs:string" use="required" />
+                        <xs:attribute name="id_samochodu" type="xs:IDREF" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:key name="pracownikKey">
+            <xs:selector xpath="usługi/pracownicy/pracownik" />
+            <xs:field xpath="@id" />
+          </xs:key>
+          <xs:keyref name="pracownikRef" refer="typy:pracownikKey">
+            <xs:selector xpath="usługi/wypożyczenia/wypożyczenie" />
+            <xs:field xpath="@id_pracownika"/>
+          </xs:keyref>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:group name="osoba">
+    <xs:sequence>
+      <xs:element name="imie" type="typy:dlugiCiagZnakow" />
+      <xs:element name="nazwisko" type="typy:dlugiCiagZnakow" />
+    </xs:sequence>
+  </xs:group>
+  
+  <xs:attributeGroup name="wypożyczającyAtrybuty">
+    <xs:attribute name="imie" type="typy:dlugiCiagZnakow" use="required" />
+    <xs:attribute name="nazwisko" type="typy:dlugiCiagZnakow" use="required" />
+    <xs:attribute name="pesel" type="typy:pesel" use="required" />
+    <xs:attribute name="nr_telefonu" type="typy:nr_telefonu" use="required" />
+  </xs:attributeGroup>
+
+  <xs:complexType name="autor">
+    <xs:attribute name="imie" type="typy:dlugiCiagZnakow" use="required" />
+    <xs:attribute name="nazwisko" type="typy:dlugiCiagZnakow" use="required" />
+    <xs:attribute name="nr_indeksu" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedInt">
+          <xs:minInclusive value="190000"/>
+          <xs:maxInclusive value="200000"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="dlugiCiagZnakow">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="krotiCiagZnakow">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bardzoKrotiCiagZnakow">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="16"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="jednostkaDrogi">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="km"/>
+      <xs:enumeration value="Km"/>
+      <xs:enumeration value="KM"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="takNie">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Nie"/>
+      <xs:enumeration value="nie"/>
+      <xs:enumeration value="Tak"/>
+      <xs:enumeration value="tak"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="miasta">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Łódź"/>
+      <xs:enumeration value="łódź"/>
+      <xs:enumeration value="Warszawa"/>
+      <xs:enumeration value="warszawa"/>
+      <xs:enumeration value="Wrocław"/>
+      <xs:enumeration value="wrocław"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="waluta">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="waluty">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PLN"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nr_telefonu">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pesel">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{11}"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

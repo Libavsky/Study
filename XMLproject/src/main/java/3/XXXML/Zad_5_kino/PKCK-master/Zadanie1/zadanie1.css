@@ -1,0 +1,257 @@
+wypożyczalnia
+{
+    font-size: 20px;
+    background-color: #996969;
+    
+}
+temat
+{
+    text-align: center;
+    font-size: 50px;
+    display:block;
+    color:white;
+    background-color: #813030;
+    padding: 20px;
+    box-shadow: 4px 4px 12px #802222;
+}
+autorzy
+{
+    display:block;
+    text-align: right;
+    position: relative;
+    top: -30px;
+    color:aliceblue;
+}
+opis, samochód, wypożyczenie
+{
+	display: block;
+}
+samochód:hover
+{
+    background-color: #842a2a;
+    cursor: pointer;
+}
+wypożyczenie > pracownik, wypożyczenie > samochód
+{
+	display: none;
+}
+
+pracownicy:before
+{
+    content: "Pracownicy: ";
+    font-weight: bold;
+}
+
+pracownik
+{
+	display: list-item;
+	margin-left: 10pt;
+    
+}
+pracownicy
+{
+    display: block;
+    background-color: rgba(132, 42, 42, 0.67);
+    width: 90%;
+    float:left;
+    line-height: 2;
+    font-size: 20px;
+    margin-bottom: 100px;  
+    margin-left: 14px;
+    padding-left: 30px;
+    margin-top: -25px;
+    box-shadow: 2px 2px 5px #802222;
+}
+samochody
+{
+    float:left;
+    display: block;
+    width: 1300px;
+    padding-top: 100px;
+    margin-left: -40px;
+}
+usługi
+{
+    width:400px;
+    float:left;
+    margin-top: 135px;
+    margin-left: 5%;
+    
+}
+autor
+{
+	display: inline;
+}
+
+autor:before
+{
+	content: attr(imie) " " attr(nazwisko) " " attr(nr_indeksu); 
+}
+
+wypożyczający:before
+{
+	content: attr(imie) " " attr(nazwisko) "\aPesel " attr(pesel) "\aNumer telefonu " attr(nr_telefonu);
+	white-space: pre;
+}
+
+wypożyczenia:before
+{
+    clear:both;
+    font-weight: bold;
+    font-size: 30px;
+    content: "Aktualne wypożyczenia: ";
+}
+
+wypożyczenie
+{
+    margin-left: 14px;
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    display: list-item;
+    list-style: upper-roman;
+    clear:both;
+    line-height: 1.2;
+    box-shadow: 2px 2px 5px #802222;
+    background-color: rgba(132, 42, 42, 0.67);
+}
+
+data_wypożyczenia, data_zwrotu, wypożyczający
+{
+	display: block;
+}
+
+data_wypożyczenia:before
+{
+    content: "Data wypożyczenia ";
+}
+
+data_zwrotu:before
+{
+    content: "Data zwrotu ";
+}
+samochody > samochód:first-child 
+{
+    
+    padding-top: 30px;
+}
+samochody > samochód:first-child > nazwa:before
+{
+    display: block;
+    content: "Nazwa";
+    margin-bottom: 80px;
+    margin-top: -80px;
+}
+nazwa
+{
+    display: inline-block;
+    width: 20%;
+}
+samochody > samochód:first-child > przebieg:before
+{
+    display: block;
+    content: "Przebieg";
+    margin-bottom: 80px;
+    margin-top: -60px;
+}
+przebieg:after
+{
+    content: " " attr(jednostka);
+}
+przebieg
+{
+    display: inline-block;
+    width: 10%;
+} 
+
+samochody > samochód:first-child > rok_produkcji:before
+{
+    display: block;
+    content: "Rocznik";
+    margin-bottom: 80px;
+    margin-top: -60px;
+}
+
+rok_produkcji
+{
+    display: inline-block;
+    width: 10%;
+}
+
+samochody > samochód:first-child > kolor:before
+{
+    display: block;
+    content: "Kolor";
+    margin-bottom: 80px;
+    margin-top: -60px;
+}
+
+kolor
+{
+    display: inline-block;
+    width: 15%;
+}
+
+samochody > samochód:first-child > czy_wypożyczone:before
+{
+    display: block;
+    content: "Wypożyczone  ";
+    margin-bottom: 80px;
+    margin-top: -60px;
+    
+}
+czy_wypożyczone
+{
+    display: inline-block;
+    width: 10%;   
+}
+samochody > samochód:first-child > cena_wypożyczenia_za_1_dzien:before
+{
+    display: block;
+    content: "Cena za dobę";
+    margin-bottom: 80px;
+    margin-top: -60px;
+    font-weight:100
+}
+
+cena_wypożyczenia_za_1_dzien
+{
+    display: inline-block;
+    width: 15%;
+    font-weight: bold;
+    
+}
+cena_wypożyczenia_za_1_dzien:after
+{
+    content: " " attr(waluta);
+}
+samochody > samochód:first-child > miasto:before
+{
+    display: block;
+    content: "Miasto";
+    margin-bottom: 80px;
+    margin-top: -60px;
+}
+samochód
+{
+    background-color: rgba(123, 22, 27, 0.68);
+    margin-top: 10px;
+    margin-left: 10%;
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    box-shadow: 2px 2px 5px #802222;
+    font-size: 25px;
+}
+
+miasto:after
+{
+	content: attr(miasto);
+}
+
+miasto
+{
+    display: inline-block;
+    width: 15%;
+}

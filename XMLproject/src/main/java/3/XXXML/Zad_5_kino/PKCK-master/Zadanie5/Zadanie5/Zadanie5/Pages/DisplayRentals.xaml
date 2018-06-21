@@ -1,0 +1,52 @@
+﻿<Page x:Class="Zadanie5.DisplayRentals"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Zadanie5"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="DisplayRentals"
+      DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+    <ScrollViewer Margin="10">
+        <ListView ItemsSource="{Binding CarRental.usługi.wypożyczenia}" SelectedIndex="{Binding SelectedRental}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="10">
+                        <TextBlock>
+                            <Run FontWeight="Bold" Text="Data Wypożyczenia" />
+                            <Run Text=" " />
+                            <Run Text="{Binding data_wypożyczenia}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run FontWeight="Bold" Text="Data Zwrotu" />
+                            <Run Text=" " />
+                            <Run Text="{Binding data_zwrotu}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run FontWeight="Bold" Text="Wypożyczający" />
+                            <Run Text=" " />
+                            <Run Text="{Binding wypożyczający.imie}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding wypożyczający.nazwisko}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding wypożyczający.nr_telefonu}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding wypożyczający.pesel}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run FontWeight="Bold" Text="Samochód" />
+                            <Run Text=" " />
+                            <Run Text="{Binding id_samochodu}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run FontWeight="Bold" Text="Pracownik odpowiedzialny" />
+                            <Run Text=" " />
+                            <Run Text="{Binding id_pracownika}" />
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollViewer>
+</Page>

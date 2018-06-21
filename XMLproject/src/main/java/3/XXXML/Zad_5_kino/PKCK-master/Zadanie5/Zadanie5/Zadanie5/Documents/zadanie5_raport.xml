@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wypożyczalnia>
+  <statystyki xmlns:cs="urn:cs" xmlns:typy="http://www.example.org/typy">
+    <miasta>
+      <miasto>
+        <nazwa>Łódź</nazwa>
+        <liczba_samochodow>4</liczba_samochodow>
+        <średnia_cena_wypożyczenia>47.48 PLN</średnia_cena_wypożyczenia>
+        <średni_przebieg>126968 km</średni_przebieg>
+        <średni_wiek>2006</średni_wiek>
+      </miasto>
+      <miasto>
+        <nazwa>Warszawa</nazwa>
+        <liczba_samochodow>5</liczba_samochodow>
+        <średnia_cena_wypożyczenia>138.31 PLN</średnia_cena_wypożyczenia>
+        <średni_przebieg>91695 km</średni_przebieg>
+        <średni_wiek>2013</średni_wiek>
+      </miasto>
+      <miasto>
+        <nazwa>Wrocław</nazwa>
+        <liczba_samochodow>3</liczba_samochodow>
+        <średnia_cena_wypożyczenia>69.01 PLN</średnia_cena_wypożyczenia>
+        <średni_przebieg>146178 km</średni_przebieg>
+        <średni_wiek>1999</średni_wiek>
+      </miasto>
+    </miasta>
+  </statystyki>
+  <wypożyczenia xmlns:cs="urn:cs" xmlns:typy="http://www.example.org/typy">
+    <wypożyczenie>
+      <samochod>Honda Civic</samochod>
+      <pracownik>Jan Kowalski</pracownik>
+      <data_wypożyczenia>2016-10-03</data_wypożyczenia>
+      <data_zwrotu>2016-11-11</data_zwrotu>
+      <wypożyczający>Michał Nowak</wypożyczający>
+    </wypożyczenie>
+    <wypożyczenie>
+      <samochod>Fiat Multipla</samochod>
+      <pracownik>Adam Garnys</pracownik>
+      <data_wypożyczenia>2016-08-21</data_wypożyczenia>
+      <data_zwrotu>2016-12-12</data_zwrotu>
+      <wypożyczający>Piotr Borowski</wypożyczający>
+    </wypożyczenie>
+  </wypożyczenia>
+  <autorzy xmlns:cs="urn:cs" xmlns:typy="http://www.example.org/typy">
+    <autor>
+      <imie>Przemysław</imie>
+      <nazwisko>Gęsieniec</nazwisko>
+    </autor>
+    <autor>
+      <imie>Łukasz</imie>
+      <nazwisko>Zimoń</nazwisko>
+    </autor>
+  </autorzy>
+  <data_raportu xmlns:cs="urn:cs" xmlns:typy="http://www.example.org/typy">2017-01-06T02:34:17Z</data_raportu>
+</wypożyczalnia>
