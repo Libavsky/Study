@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/typy" xmlns:typy="http://www.example.org/typy" elementFormDefault="qualified" >
+
+    <xs:element name="filmy" type="typy:filmyType" />
+    <xs:complexType name="autorzyType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="autor" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="wersjaType">
+        <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+            <xs:maxExclusive value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="metadaneType">
+        <xs:sequence>
+            <xs:element type="typy:autorzyType" name="autorzy" />
+            <xs:element type="typy:wersjaType" name="wersja"/>
+            <xs:element type="xs:string" name="opis"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="aktorType">
+        <xs:sequence>
+            <xs:element name="imię">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="1000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="nazwisko">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="1000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:anyURI" name="filmweb" use="optional"/>
+    </xs:complexType>
+    <xs:complexType name="aktorzyType">
+        <xs:sequence>
+            <xs:element type="typy:aktorType" name="aktor" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="gatunekType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="GATUNEK" use="required">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Science-Fiction" />
+                            <xs:enumeration value="Przygodowy" />
+                            <xs:enumeration value="Dramat" />
+                            <xs:enumeration value="Komedia" />
+                            <xs:enumeration value="Kryminał" />
+                            <xs:enumeration value="Fantasy" />
+                            <xs:enumeration value="Horror" />
+                            <xs:enumeration value="Obyczajowy" />
+                            <xs:enumeration value="Dokument" />
+                            <xs:enumeration value="Thriller" />
+                            <xs:enumeration value="Quentin_Tarantino" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="wartość">
+        <xs:restriction base="xs:long">
+            <xs:maxExclusive value="1000000000000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="box_officeType">
+        <xs:simpleContent>
+            <xs:extension base="typy:wartość">
+                <xs:attribute name="waluta" use="required">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Funtów" />
+                            <xs:enumeration value="Euro" />
+                            <xs:enumeration value="Dolarów" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="ograniczenie_wiekoweType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="od_lat" use="required">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="bez_ograniczeń" />
+                            <xs:enumeration value="od_trzynastu_lat" />
+                            <xs:enumeration value="dla_dorosłych" />
+                            <xs:enumeration value="od_szesnastu_lat" />
+                            <xs:enumeration value="od_siedmiu_lat" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="filmType">
+        <xs:sequence>
+            <xs:element name="tytuł">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="1000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="reżyser" maxOccurs="unbounded" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="1000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element type="xs:date" name="data_premiery"/>
+            <xs:element type="typy:aktorzyType" name="aktorzy"/>
+            <xs:element type="typy:gatunekType" name="gatunek" />
+            <xs:element type="typy:box_officeType" name="box_office" minOccurs="0" />
+            <xs:element type="typy:ograniczenie_wiekoweType" name="ograniczenie_wiekowe" />
+        </xs:sequence>
+        <xs:attribute type="xs:IDREF" name="studio" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="studioType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:ID" name="identyfikator" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="studiaType">
+        <xs:sequence>
+            <xs:element type="typy:studioType" name="studio" maxOccurs="unbounded" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="filmyType">
+        <xs:sequence>
+            <xs:element type="typy:metadaneType" name="metadane"/>
+            <xs:element type="typy:filmType" name="film" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="typy:studiaType" name="studia"/>
+        </xs:sequence>
+    </xs:complexType>
+  
+
+  
+</xs:schema>

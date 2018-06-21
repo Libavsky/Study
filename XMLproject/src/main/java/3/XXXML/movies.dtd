@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT filmy (metadane?, film+, studia)>
+<!ELEMENT metadane (autor?, wersja, osoby_modyfikujące*,opis?)>
+<!ELEMENT autor (#PCDATA)>
+<!ELEMENT wersja (#PCDATA)>
+<!ELEMENT opis (#PCDATA)>
+<!ELEMENT osoby_modyfikujące (#PCDATA)>
+<!ELEMENT film (tytuł, reżyser+, data_premiery, aktorzy, gatunek, box_office?, ograniczenie_wiekowe?)>
+<!ATTLIST film studio IDREF #REQUIRED>
+<!ELEMENT tytuł (#PCDATA)>
+<!ELEMENT reżyser (#PCDATA)>
+<!ELEMENT data_premiery (#PCDATA)>
+<!ELEMENT aktorzy (aktor*)>
+<!ELEMENT aktor (imię, nazwisko)>
+<!ATTLIST aktor filmweb CDATA #IMPLIED>
+<!ELEMENT imię (#PCDATA)>
+<!ELEMENT nazwisko (#PCDATA)>
+<!ELEMENT gatunek EMPTY>
+<!ATTLIST gatunek GATUNEK (Science-Fiction | Przygodowy | Dramat | Komedia | Kryminał | Fantasy | Horror | Obyczajowy | Dokument | Thriller | Quentin_Tarantino ) #REQUIRED>
+<!ELEMENT box_office (#PCDATA)>
+<!ATTLIST box_office waluta (Dolarów | Euro | Funtów) #REQUIRED>
+<!ELEMENT ograniczenie_wiekowe EMPTY>
+<!ATTLIST ograniczenie_wiekowe od_lat (bez_ograniczeń | od_siedmiu_lat | od_trzynastu_lat | od_szesnastu_lat | dla_dorosłych) #REQUIRED>
+<!ELEMENT studia (studio)+>
+<!ELEMENT studio (#PCDATA)>
+<!ATTLIST studio identyfikator ID #REQUIRED>
