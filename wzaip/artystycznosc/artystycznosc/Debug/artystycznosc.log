@@ -1,0 +1,9 @@
+﻿  artystycznosc.cpp
+e:\projekty\repomine2\z\wzaip\artystycznosc\artystycznosc\artystycznosc.cpp(27): warning C4244: '+=': conversion from '__int64' to 'int', possible loss of data
+e:\projekty\repomine2\z\wzaip\artystycznosc\artystycznosc\artystycznosc.cpp(51): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+e:\projekty\repomine2\z\wzaip\artystycznosc\artystycznosc\artystycznosc.cpp(57): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+e:\projekty\repomine2\z\wzaip\artystycznosc\artystycznosc\artystycznosc.cpp(62): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+LINK : fatal error LNK1168: cannot open E:\projekty\repomine2\z\wzaip\artystycznosc\Debug\artystycznosc.exe for writing
