@@ -1,0 +1,122 @@
+﻿<Page x:Class="Zad_5_kino.Views.WyswietlFilmy"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Zad_5_kino.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="WyswietlFilmy"
+      DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+
+    <ScrollViewer Margin="10" >
+        <ListView ItemsSource="{Binding repertuar.filmy}" SelectedIndex="{Binding SelectedFilm}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="10">
+                        <TextBlock Text="{Binding tytuł}"/>
+                        <TextBlock FontWeight="Bold">
+                            <Run Text="ID: " />
+                            <Run Text="{Binding id}" />
+                        </TextBlock>
+                        <TextBlock FontWeight="Bold">
+                            <Run Text="Reżyseria " />
+                            <Run Text="{Binding reżyser[0]}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding reżyser[1]}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding reżyser[2]}" />
+                        </TextBlock>
+                        <TextBlock FontWeight="Bold">
+                            <Run Text="Data premiery: " />
+                            <Run Text="{Binding data_premiery}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Aktorzy: " />
+                            <Run Text="&#x0a;" />
+                            <Run Text="{Binding aktorzy[0].imię}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[0].nazwisko}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[0].filmweb}" />
+                            <Run Text="&#x0a;" />
+                            <Run Text="{Binding aktorzy[1].imię}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[1].nazwisko}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[1].filmweb}" />
+                            <Run Text="&#x0a;" />
+                            <Run Text="{Binding aktorzy[2].imię}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[2].nazwisko}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[2].filmweb}" />
+                            <Run Text="&#x0a;" />
+                            <Run Text="{Binding aktorzy[3].imię}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[3].nazwisko}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[3].filmweb}" />
+                            <Run Text="&#x0a;" />
+                            <Run Text="{Binding aktorzy[4].imię}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[4].nazwisko}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[4].filmweb}" />
+                            <Run Text="&#x0a;" />
+                            <Run Text="{Binding aktorzy[5].imię}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[5].nazwisko}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[5].filmweb}" />
+                            <Run Text="&#x0a;" />
+                            <Run Text="{Binding aktorzy[6].imię}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[6].nazwisko}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[6].filmweb}" />
+                            <Run Text="&#x0a;" />
+                            <Run Text="{Binding aktorzy[7].imię}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[7].nazwisko}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[7].filmweb}" />
+                            <Run Text="&#x0a;" />
+                            <Run Text="{Binding aktorzy[8].imię}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[8].nazwisko}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[8].filmweb}" />
+                            <Run Text="&#x0a;" />
+                            <Run Text="{Binding aktorzy[9].imię}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[9].nazwisko}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[9].filmweb}" />
+                            <Run Text="&#x0a;" />
+                            <Run Text="{Binding aktorzy[10].imię}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[10].nazwisko}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding aktorzy[10].filmweb}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Gatunek: " />
+                            <Run Text="{Binding gatunek.rodzaj}"/>
+                        </TextBlock> 
+                        <TextBlock>
+                            <Run Text="Box office: " />
+                            <Run Text="{Binding box_office.Value}"/>
+                            <Run Text="{Binding box_office.waluta}"/>
+                        </TextBlock>
+                        <TextBlock Text="{Binding ograniczenie_wiekowe.od_lat}"/>
+                        <TextBlock>
+                            <Run Text="Ocena: " />
+                            <Run Text="{Binding ocena}" />
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollViewer>
+</Page>

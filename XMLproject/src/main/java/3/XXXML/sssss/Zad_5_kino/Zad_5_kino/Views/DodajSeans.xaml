@@ -1,0 +1,23 @@
+﻿<Page x:Class="Zad_5_kino.Views.DodajSeans"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Zad_5_kino.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="DodajSeans"
+             DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+
+
+    <ScrollViewer>
+        <StackPanel>
+            <TextBlock Text="Data seansu"/>
+            <TextBox Text="{Binding NewSeans.data_seansu}"/>
+            <TextBlock Text="Id kina"/>
+            <TextBox Text="{Binding NewSeans.id_kina}"/>
+            <TextBlock Text="Id filmu"/>
+            <TextBox Text="{Binding NewSeans.id_filmu}"/>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
