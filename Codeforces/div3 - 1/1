@@ -1,0 +1,36 @@
+n = [int(s) for s in input().split(" ")]
+numbers = [int(s) for s in input().split(" ")]
+lol2 = {}
+for i in range(0,len(numbers)):
+    if numbers[i] in lol2:
+        continue
+    else:
+        lol2[numbers[i]]=[i,-1]
+
+for i in range(len(numbers)-1,0,-1):
+    if lol2[numbers[i]][1]!=-1:
+        continue
+    else:
+        lol2[numbers[i]][1] = i
+x = list(lol2.values())
+answer = 0
+leng = len(x)
+# for i in range(0,leng):
+#     for j in range(0,leng):
+#         if x[i][0]<x[j][1]:
+#             answer+=1
+first = []
+second = []
+for i in range(0,leng):
+    first.append(x[i][0])
+    second.append(x[i][1])
+first.sort()
+second.sort()
+for i in range(0,leng):
+    z = first[i]
+    for j in range(0, leng):
+        if second[j]>z:
+            answer+=leng-j
+            break
+print(answer)
+# print(numbers)
