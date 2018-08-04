@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\WeatherGluonApp.jar;%APP_HOME%\lib\particle-1.1.3.jar;%APP_HOME%\lib\owm-japis-2.5.0.3.jar;%APP_HOME%\lib\gson-2.7.jar;%APP_HOME%\lib\javax.inject-1.jar;%APP_HOME%\lib\controlsfx-8.40.12.jar;%APP_HOME%\lib\annotation-detector-3.0.4.jar
+set CLASSPATH=%APP_HOME%\lib\WeatherGluonApp.jar;%APP_HOME%\lib\particle-1.1.3.jar;%APP_HOME%\lib\owm-japis-2.5.0.3.jar;%APP_HOME%\lib\gson-2.7.jar;%APP_HOME%\lib\afterburner.fx-1.7.0.jar;%APP_HOME%\lib\GMapsFX-2.12.0.jar;%APP_HOME%\lib\xstream-1.4.10.jar;%APP_HOME%\lib\javax.inject-1.jar;%APP_HOME%\lib\controlsfx-8.40.12.jar;%APP_HOME%\lib\annotation-detector-3.0.4.jar;%APP_HOME%\lib\logback-classic-1.2.1.jar;%APP_HOME%\lib\slf4j-api-1.7.23.jar;%APP_HOME%\lib\xmlpull-1.1.3.1.jar;%APP_HOME%\lib\xpp3_min-1.1.4c.jar;%APP_HOME%\lib\logback-core-1.2.1.jar
 
 @rem Execute WeatherGluonApp
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %WEATHER_GLUON_APP_OPTS%  -classpath "%CLASSPATH%" com.Weather.WeatherApp %CMD_LINE_ARGS%

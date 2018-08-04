@@ -22,10 +22,10 @@ public class MenuActions {
     @ActionProxy(text="About")
     private void about() {
         Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Gluon Desktop");
-        alert.setHeaderText("About Gluon Desktop");
+        alert.setTitle("OxyWeatherApp");
+        alert.setHeaderText("About");
         alert.setGraphic(new ImageView(new Image(MenuActions.class.getResource("/icon.png").toExternalForm(), 48, 48, true, true)));
-        alert.setContentText("This is a basic Gluon Desktop Application");
+        alert.setContentText("Weather App \nTo get current weather as well as forecast please click somewhere on the map or load list of cities and choose from it");
         alert.showAndWait();
     }
         

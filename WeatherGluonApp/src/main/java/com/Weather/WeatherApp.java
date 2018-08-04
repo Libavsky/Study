@@ -7,16 +7,14 @@ import static org.controlsfx.control.action.ActionMap.actions;
 public class WeatherApp extends ParticleApplication {
 
     public WeatherApp() {
-        super("Gluon Desktop Application");
+        super("OxyWeatherApp");
     }
 
     @Override
     public void postInit(Scene scene) {
         scene.getStylesheets().add(WeatherApp.class.getResource("style.css").toExternalForm());
 
-        setTitle("Gluon Desktop Application");
-
-        getParticle().buildMenu("File -> [exit]", "Help -> [about]");
+        setTitle("OxyWeatherApp [UALX and X47]");
         
         getParticle().getToolBarActions().addAll(actions("---", "about", "exit"));
     }

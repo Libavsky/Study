@@ -7,15 +7,11 @@ public class Citys {
     private Integer id;
     private String name;
     private String country;
-    private Double lon;
-    private Double lat;
 
-    public Citys(Integer id, String name, String country, Double lon, Double lat) {
+    public Citys(Integer id, String name, String country) {
         this.id = id;
         this.name = name;
         this.country = country;
-        this.lon = lon;
-        this.lat = lat;
     }
 
     public Integer getId() {
@@ -42,19 +38,4 @@ public class Citys {
         this.country = country;
     }
 
-    public Double getLon() {
-        return lon;
-    }
-
-    public void setLon(Double lon) {
-        this.lon = lon;
-    }
-
-    public Double getLat() {
-        return lat;
-    }
-
-    public void setLat(Double lat) {
-        this.lat = lat;
-    }
 }
