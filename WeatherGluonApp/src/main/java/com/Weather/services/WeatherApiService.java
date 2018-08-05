@@ -49,7 +49,7 @@ public class WeatherApiService {
     public List<HourlyForecast.Forecast> GetDataByDate(HourlyForecast hourlyForecast, String numOfDays){
         Integer x = Integer.parseInt(numOfDays);
         return  GetListOfForecasts(hourlyForecast).stream().filter(
-                e -> LocalDateTime.ofInstant(e.getDateTime().toInstant(),ZoneId.systemDefault()).getDayOfYear()==LocalDateTime.now().getDayOfYear()+x).collect(Collectors.toList());
+                e -> LocalDateTime.ofInstant(e.getDateTime().toInstant(),ZoneId.systemDefault()).getDayOfYear()==LocalDateTime.now().plusDays(x).getDayOfYear()).collect(Collectors.toList());
     }
 
     public List<String> GetForecastDataInNiceFormat(List<HourlyForecast.Forecast> forecasts){
